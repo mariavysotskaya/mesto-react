@@ -5,7 +5,7 @@ export default function Card(props) {
   
   return (
     <article className="card">
-      <img className="card__image" alt="Изображение" src={props.card.link} onClick={handleClick}/>
+      <img className="card__image" alt={props.card.name} src={props.card.link} onClick={handleClick}/>
       <button type="button" className="card__delete-btn button" />
       <div className="card__container">
         <h2 className="card__name">{props.card.name}</h2>

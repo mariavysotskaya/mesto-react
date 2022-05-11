@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import api from '../utils/api';
 import Card from './Card';
 
 export default function Main(props) {
-  const [userName, setUserName] = React.useState('Загрузка...');
-  const [userDescription, setUserDescription] = React.useState('Загрузка...');
-  const [userAvatar, setUserAvatar] = React.useState();
-  const [cards, setCards] = React.useState([]);
+  const [userName, setUserName] = useState('Загрузка...');
+  const [userDescription, setUserDescription] = useState('Загрузка...');
+  const [userAvatar, setUserAvatar] = useState('');
+  const [cards, setCards] = useState([]);
   
   useEffect(() => {
     Promise.all([api.getUser(), api.getCards()])
