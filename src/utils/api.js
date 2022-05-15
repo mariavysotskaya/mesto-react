@@ -55,17 +55,9 @@ class Api {
     return this._makeRequest(promise);
   }
 
-  putLike(cardID) {
+  changeLikeCardStatus(cardID, isLiked) {
     const promise = fetch(`${this._url}cards/${cardID}/likes`, {
-      method: 'PUT',
-      headers: this._headers
-    });
-    return this._makeRequest(promise);
-  }
-
-  deleteLike(cardID) {
-    const promise = fetch(`${this._url}cards/${cardID}/likes`, {
-      method: 'DELETE',
+      method: isLiked ? 'DELETE' : 'PUT',      
       headers: this._headers
     });
     return this._makeRequest(promise);
