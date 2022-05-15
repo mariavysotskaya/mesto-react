@@ -20,7 +20,15 @@ export default function Main(props) {
         <button type="button" className="profile__add-btn button" onClick={props.onAddPlace} />
       </section>
       <section className="cards content__section content__section_mobile">
-        {props.cards.map(item => <Card card={item} key={item._id} onCardClick={props.onCardClick} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete}/>)}
+        {props.cards.map(item => (
+          <Card
+            card={item}
+            key={item._id}
+            onCardClick={props.onCardClick}
+            onCardLike={props.onCardLike}
+            onCardDelete={props.onCardDelete}/>
+          ))
+        }
       </section>
     </div>
   )

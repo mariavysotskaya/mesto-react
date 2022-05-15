@@ -59,6 +59,7 @@ export default function App() {
       setCurrentUser(data);
       closeAllPopups();
     })
+    .catch(err => console.log('Не удалось сохранить изменения'))
   };
 
   function handleUpdateAvatar(link) {
@@ -67,6 +68,7 @@ export default function App() {
       setCurrentUser(data);
       closeAllPopups();
     })
+    .catch(err => console.log('Не удалось сохранить изменения'))
   };
 
   function handleCardLike(card) {
@@ -75,14 +77,16 @@ export default function App() {
     api.changeLikeCardStatus(card._id, isLiked)
     .then((newCard) => {
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    });
+    })
+    .catch(err => console.log('Не удалось выполнить действие'));
   };
 
   function handleCardDelete(card) {
     api.deleteCard(card._id)
     .then(() => {
       setCards(states => states.filter(c => c._id !== card._id))
-    });
+    })
+    .catch(err => console.log('Удаление не удалось'));
   };
 
   function handleAddPlaceSubmit(data) {
@@ -91,6 +95,7 @@ export default function App() {
       setCards([card, ...cards]); 
       closeAllPopups();
     }))
+    .catch(err => console.log('Не удалось сохранить изменения'))
   };
 
   return (
